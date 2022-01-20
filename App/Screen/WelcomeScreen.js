@@ -13,7 +13,7 @@ function WelcomeScreen(props) {
             </View>
             <View style={styles.buttonContainer}>
                 <AppButton title="Login" />
-                <AppButton title='Register' />
+                <AppButton title='Register' color='open' />
             </View>            
         </View>
     );
