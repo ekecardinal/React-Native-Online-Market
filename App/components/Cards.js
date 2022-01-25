@@ -7,10 +7,10 @@ import AppText from './AppText';
 function Cards({ title, subTitle, image, request, price}) {
     return (
         <View style={styles.card}>
-            <Image style={styles.image} source={require(image)} />            
-            <View>
-                <AppText style={styles.detailsContainer}>{title}</AppText>
-                <AppText>{subTitle}</AppText>
+            <Image style={styles.image} source={(image)} />            
+            <View style={styles.detailsContainer}>
+                <AppText style={styles.title}>{title}</AppText>
+                <AppText style={styles.subTitle}>{subTitle}</AppText>
             </View>
             <View>
                 <AppText>{request}</AppText>
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     subTitle: {
-        color: colors.black
+        color: colors.open
     },
     title: {
         marginBottom: 7,
