@@ -1,13 +1,18 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import * as Yup from 'yup';
+import CategoryPickerItem from '../components/CategoryPickerItem';
 
-import {
-    AppForm,
-    AppFormField,
-    AppFormPicker,
-    SubmitButton
-} from '../components/forms'
+// import {
+//     AppForm,
+//     AppFormField,
+//     AppFormPicker,
+//     SubmitButton
+// } from '../components/forms';
+import  AppForm  from '../components/forms/AppForm';
+import  AppFormField  from '../components/forms/AppFormField';
+import  AppFormPicker  from '../components/forms/AppFormPicker';
+import  SubmitButton  from '../components/forms/SubmitButton';
 import Screen from '../components/Screen';
 
 const validationSchema = Yup.object().shape({
@@ -18,10 +23,15 @@ const validationSchema = Yup.object().shape({
 })
 
 const categories = [
-    {label: 'House', value: 1},
-    {label: 'Cloth', value: 2},
-    {label: 'Accessories', value: 3},
-    {label: 'Cars', value: 4},
+    {label: 'House', value: 1, backgroundColor: '#FF7F50', icon: 'home-city-outline'},
+    {label: 'Sports', value: 4, backgroundColor: '#FA8072', icon: 'football'},
+    {label: 'Accessories', value: 3, backgroundColor: 'orange', icon: 'camera'},
+    {label: 'Cloth', value: 2, backgroundColor: '#D2691E', icon: 'hanger'},
+    {label: 'Cars', value: 5, backgroundColor: '#008080', icon: 'car'},
+    {label: 'Games', value: 6, backgroundColor: '#40E0D0', icon: 'gamepad'},
+    {label: 'Books', value: 7, backgroundColor: '#87CEFA', icon: 'book-open-page-variant'},
+    {label: 'Computer', value: 8, backgroundColor: '#4169E1', icon: 'laptop'},
+    {label: 'Others', value: 9, backgroundColor: '#8A2BE2', icon: 'help'},
 ]
 
 function ListingEditScreen(props) {
@@ -41,11 +51,16 @@ function ListingEditScreen(props) {
                 keyboardType='numeric'
                 maxLength={8}
                 name='price'
-                placeholder='Price'/>
+                placeholder='Price'
+                width={120}/>
                 
-                <AppFormPicker name='category'
+                <AppFormPicker 
+                name='category'
+                //numberOfColumns={3}
                 placeholder='Category'
-                items={categories}/>
+                //PickerItemComponent={CategoryPickerItem}
+                items={categories}
+                width='50%'/>
 
                 <AppFormField 
                 name='description'
